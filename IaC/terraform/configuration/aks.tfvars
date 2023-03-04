@@ -18,7 +18,7 @@ aks_clusters = {
     }
 
 
-    kubernetes_version = "1.23.8"
+    kubernetes_version = "1.24.9"
     vnet_key           = "vnet_aks_re1"
 
     # network plugin and network policy should be "azure" (recommended by Secure AKS baseline)
@@ -39,7 +39,7 @@ aks_clusters = {
       }
     }
 
-    sku_tier = "Paid"
+    sku_tier = "Free"
 
     addon_profile = {
       oms_agent = {
@@ -65,12 +65,12 @@ aks_clusters = {
 
     default_node_pool = {
       name                  = "sharedsvc"
-      vm_size               = "Standard_DS3_v2"
+      vm_size               = "Standard_DS2_v2"
       subnet_key            = "aks_nodepool_system"
       enabled_auto_scaling  = false
       enable_node_public_ip = false
       max_pods              = 30
-      node_count            = 3
+      node_count            = 1
       os_disk_type          = "Ephemeral"
       os_disk_size_gb       = 80
       # orchestrator_version  = "1.20.5"
@@ -87,8 +87,8 @@ aks_clusters = {
         mode                = "User"
         subnet_key          = "aks_nodepool_system"
         max_pods            = 30
-        vm_size             = "Standard_DS3_v2"
-        node_count          = 3
+        vm_size             = "Standard_DS2_v2"
+        node_count          = 1
         os_disk_type        = "Ephemeral"
         enable_auto_scaling = false
         os_disk_size_gb     = 120
