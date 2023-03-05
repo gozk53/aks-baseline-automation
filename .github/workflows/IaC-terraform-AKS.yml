@@ -90,7 +90,7 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v1.4.6
         with:
-          creds: ${{ env.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Create Resource Group and Storage Account for TF State
         if: ${{ github.event.inputs.TF_BACKEND_STORAGE_ACCOUNT != '' && (github.event.inputs.DEPLOY_PLAN_ONLY == 'true' || github.event.inputs.DEPLOY == 'true') }}
